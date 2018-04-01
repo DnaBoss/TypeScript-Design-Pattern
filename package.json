@@ -1,0 +1,31 @@
+{
+  "name": "typescript-design-pattern",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Decorator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "typings install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DnaBoss/TypeScript-Design-Pattern.git"
+  },
+  "author": "Cash",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DnaBoss/TypeScript-Design-Pattern/issues"
+  },
+  "homepage": "https://github.com/DnaBoss/TypeScript-Design-Pattern#readme",
+  "dependencies": {
+    "@types/es6-shim": "^0.31.36",
+    "@types/node": "^9.6.1",
+    "dts-generator": "^2.1.0",
+    "es6-shim": "^0.35.3",
+    "typing": "^0.1.9",
+    "typings": "^2.1.1"
+  },
+  "devDependencies": {
+    "typescript": "^2.9.0-dev.20180331"
+  }
+}
