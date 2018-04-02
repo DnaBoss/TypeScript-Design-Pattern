@@ -31,4 +31,5 @@ function watch(object, onChange) {
     changeable.gg = 2;
     //這次改成不一樣的值，就會觸發通知道
     changeable.gg = 3;
+    //新增一個屬性也會收到通知
     changeable.b = 5;
