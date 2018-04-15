@@ -1,2 +1,9 @@
 node_modules/
+<<<<<<< HEAD
 .DS_Store
+=======
+typings/
+**/*.d.ts
+**/*.map
+**/*.DS_Store
+>>>>>>> c9f4acb4e0db9a322571a0d17904d923c13c339f
