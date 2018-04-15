@@ -3,7 +3,7 @@ function watch(object, onChange) {
         set(target, key, value, receiver) {
             if (target[key] !== value) {
                 onChange(target, key, value);
-            }  
+            }
             return Reflect.set(target, key, value, receiver);
         },
         deleteProperty(target, property) {
@@ -12,19 +12,20 @@ function watch(object, onChange) {
         }
     };
 
-    return new Proxy(object, handler);
+    return new (object, handler);
 };
 
-let j = {
-    a: 1
+let test = {
+    gg: 1
 };
 
-let changeable = watch(j, (obj, property, value) => {
-   
+let changeable = watch(test, (obj, property, value) => {
+    console.log(`test 的 ${property} 將由 ${test[property]} 改為 ${value}`);
 });
 
-changeable.a = 1;
-
-changeable.a = 2;
+changeable.gg = 1;
+changeable.gg = 2;
+changeable.gg = 2;
+changeable.gg = 3;
 
 
