@@ -1,5 +1,5 @@
 node_modules/
 typings/
-*.d.ts
-*.map
-*.DS_Store
+**/*.d.ts
+**/*.map
+**/*.DS_Store
