@@ -1,13 +1,13 @@
 {
     "compilerOptions": {
         "lib": [
-            "es5",
-            "es6",
+            "dom",
             "es2015",
-            "es7",
             "es2016",
             "es2017",
-            "dom"
+            "es5",
+            "es6",
+            "es7",
         ],
         "types": ["node"],
         "noImplicitAny": true,
