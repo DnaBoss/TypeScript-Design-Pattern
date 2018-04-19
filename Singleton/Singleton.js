@@ -7,8 +7,8 @@ class Singleton {
 }
 let test1 = Singleton.getInstance();
 let test2 = Singleton.getInstance();
-// console.log(typeof test1)//Object
-// console.log(typeof test2)//Object
+console.log(typeof test1); //Object
+console.log(typeof test2); //Object
 console.log('test1 === test2 ? ', test1 === test2); //true
 /**
  * 因為　node.js 是單執行緒，所以，這個單例就完全夠用了，沒有執行緒安全的問題
