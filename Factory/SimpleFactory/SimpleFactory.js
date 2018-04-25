@@ -1,20 +1,4 @@
-class Car {
-}
-class Porsche911 extends Car {
-    installEngine() { }
-    installWhell() { }
-    run() { console.log('Porsche911 帥氣的奔馳'); }
-}
-class Boxter extends Car {
-    installEngine() { }
-    installWhell() { }
-    run() { console.log('Boxter 帥氣的奔馳'); }
-}
-class Cayenne extends Car {
-    installEngine() { }
-    installWhell() { }
-    run() { console.log('Cayenne 帥氣的奔馳'); }
-}
+"use strict";
 // class CarStore {
 //     car: Car;
 //     orderCar(type: string) {
@@ -28,35 +12,21 @@ class Cayenne extends Car {
 //             this.car = new Cayenne();
 //         }
 //         this.car.installEngine();
-//         this.car.installWhell();
+//         this.car.installWheel();
 //         return this.car;
 //     }
 // }
-// class SimpleCarFactory {
-//     car: Car;
-//     createCar(type: string) {
-//         if (type === '911') {
-//             this.car = new Porsche911();
-//         }
-//         else if (type === 'boxter') {
-//             this.car = new Boxter();
-//         }
-//         else if (type === 'cayenne') {
-//             this.car = new Cayenne();
-//         }
-//         return this.car;
-//     }
-// }
+// 把 orderCar方法裡的 if else ，搬到工廠類別
+//
+Object.defineProperty(exports, "__esModule", { value: true });
+const Container_1 = require("./Container");
 class SimpleCarFactory {
-    createCar(type) {
-        let model = {
-            '911': new Porsche911(),
-            'boxter': new Boxter(),
-            'cayenne': new Cayenne(),
-        };
-        return model[type];
+    createCar(typeName) {
+        return new Container_1.Container[typeName]();
     }
 }
+// 從此之後，要新增車子的種類 也不用在工廠或Store裡做任何更動
+// 只要寫好新的類別，並且在 Config(此處是 Container.ts) 做新增即可
 class CarStore {
     constructor(factory) {
         this.factory = factory;
@@ -64,14 +34,14 @@ class CarStore {
     orderCar(type) {
         this.car = this.factory.createCar(type);
         this.car.installEngine();
-        this.car.installWhell();
+        this.car.installWheel();
         return this.car;
     }
 }
 /**
  * SimpleCarFactory 負責 車子的生造、建造
  * 更精確的說 負責「實例化」 讓工廠去負責 new 一個類別，產生實例
- * 而 CarStore 負則使用
+ * 而 CarStore 負責使用
  * 要什麼樣子的車，是外部輸入的，真正的車子是工廠給的
  * 門市 接受訂單 交給工廠 不管交回來的車子是什麼型號，都只執行一樣的步驟、方法
  * 有新的車型出來，再去 工廠新增一個判斷
@@ -81,6 +51,10 @@ class CarStore {
 */
 let factory = new SimpleCarFactory();
 let store = new CarStore(factory);
-let car = store.orderCar("911");
-car.run();
+let car = store.orderCar("Porsche911");
+car.run(); //Porsche911 帥氣的奔馳
+car = store.orderCar("Cayenne");
+car.run(); //Cayenne 帥氣的奔馳
+car = store.orderCar("Boxter");
+car.run(); //Boxter 帥氣的奔馳
 //# sourceMappingURL=SimpleFactory.js.map
