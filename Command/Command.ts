@@ -70,7 +70,6 @@ class SummonerRift {
     //　實務上　SummonerRift　可能需要包含多種模式、類別(也可能不用）
     //  需要負責接收命令、儲存命令、判斷(定)命令、執行命令、回傳結果
     // 　request　應該會是一個可迭代的容器，收到　command　後，將　command 加入　容器
-    //  而cast 也不會被　client 呼叫，而是　GameServer 自己有一套機制決定怎麼樣去執行收到的Command
     //　但在這裡，我只想演示命令模式　所以簡化這層關系
     request: ICommand;
     setCommand(command: ICommand) {
@@ -82,7 +81,10 @@ class SummonerRift {
 }
 
 
-// 大部份時後，invoker　會由　client 創建出來，但我們在UML中不會看到這點，因為他不是絕對的
+// 大部份時後，invoker　會由　client 創建出來，
+// 但我們在UML中不會看到這點，因為他不是絕對的
+// 這裡的client 並不是指 玩家端、用戶端，
+// 而是建立委派者、建立接受者，並使用委派者呼叫命令的地方
 let summonerRift = new SummonerRift();
 
 //接收者是由 client 創建的
