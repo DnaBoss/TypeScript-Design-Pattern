@@ -47,7 +47,10 @@ class SummonerRift {
         this.request.execute();
     }
 }
-// 大部份時後，invoker　會由　client 創建出來，但我們在UML中不會看到這點，因為他不是絕對的
+// 大部份時後，invoker　會由　client 創建出來，
+// 但我們在UML中不會看到這點，因為他不是絕對的
+// 這裡的client 並不是指 玩家端、用戶端，
+// 而是建立委派者、建立接受者，並使用委派者呼叫命令的地方
 let summonerRift = new SummonerRift();
 //接收者是由 client 創建的
 let vladimir = new Vladimir();

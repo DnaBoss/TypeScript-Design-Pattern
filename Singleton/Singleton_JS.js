@@ -7,11 +7,11 @@
  * 
 */
 
-//　記住一件事，用匿名函數有二個重點　１.函數的name屬性會是undefined 2.此函數會沒有建構式
+//　記住一件事，用匿名函數有二個重點　１.函數的name屬性會是undefined 2.在指名之前會沒有建構式
 var Singleton = function (name) {
     this.name = name;
 }
-//用一個IIEF　讓　getInstance　直接產生閉包，形成單例，在golang　也可以用這個方法
+//用一個IIEF　讓　getInstance　直接產生閉包，形成單例，在golang　也可以用這個方法(閉包)
 Singleton.getInstance = (name => {
     var instance;
     return name => instance = instance ? instance : new Singleton(name);
