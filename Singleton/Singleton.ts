@@ -1,5 +1,5 @@
 class Singleton {
-    private static _instance: Singleton;
+    private  _instance: Singleton;
     //把建構式設成　private　讓外部無法自行實例化
     private constructor() { }
     static getInstance() {
