@@ -12,7 +12,7 @@ function watch(object, onChange) {
         }
     };
 
-    return new (object, handler);
+    return new Proxy(object, handler);
 };
 
 let test = {
